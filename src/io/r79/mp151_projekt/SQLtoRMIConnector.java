@@ -28,4 +28,23 @@ public class SQLtoRMIConnector extends UnicastRemoteObject implements FilmClubIn
     public ArrayList<VisitorDTO> getVisitors(int id) {
         return null;
     }
+    
+    public static void main(String[] args) {
+		try
+		{
+			try {
+				LocateRegistry.createRegistry(1099);
+			} catch (RemoteException e) {
+				System.out.println("Could not start Registry");
+			}
+			
+			SQLtoRMIConnector impl = new SQLtoRMIConnector();
+			
+			String SQLService = "SQLService";
+			Naming.rebind("//localhost/" + SQLService, impl);
+		}
+		catch(Exception exc) {
+			exc.printStackTrace();
+		}
+	}
 }
