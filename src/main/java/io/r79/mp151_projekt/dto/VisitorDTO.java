@@ -1,13 +1,18 @@
 package io.r79.mp151_projekt.dto;
 
+import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
+@XmlRootElement
 public class VisitorDTO implements Serializable {
+    final static long serialVersionUID = 1338;
     private int id;
     private String name;
     private String prename;
     private String phone;
 
+    @XmlAttribute
     public int getId() {
         return id;
     }
@@ -16,6 +21,7 @@ public class VisitorDTO implements Serializable {
         this.id = id;
     }
 
+    @XmlAttribute
     public String getName() {
         return name;
     }
@@ -24,6 +30,7 @@ public class VisitorDTO implements Serializable {
         this.name = name;
     }
 
+    @XmlAttribute
     public String getPrename() {
         return prename;
     }
@@ -32,6 +39,7 @@ public class VisitorDTO implements Serializable {
         this.prename = prename;
     }
 
+    @XmlAttribute
     public String getPhone() {
         return phone;
     }
