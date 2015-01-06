@@ -44,7 +44,7 @@ public class MySQLDAO {
             ResultSet rs = statement.executeQuery();
 
             while(rs.next()) {
-                performances.add(new PerformanceDTO(rs.getInt(1), new Date(rs.getInt(2)), rs.getString(3), rs.getString(4), ""));
+                performances.add(new PerformanceDTO(rs.getInt(1), rs.getLong(2)*1000, rs.getString(3), rs.getString(4), ""));
             }
 
         } catch (SQLException e) {

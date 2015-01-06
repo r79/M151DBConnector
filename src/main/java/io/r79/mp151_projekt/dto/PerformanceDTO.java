@@ -1,20 +1,23 @@
 package io.r79.mp151_projekt.dto;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
-import java.util.Date;
 
-@XmlRootElement
+@XmlRootElement(name="performance")
 public class PerformanceDTO implements Serializable {
     final static long serialVersionUID = 1337;
     private int id;
-    private Date date;
+    private long date;
     private String room;
     private String title;
     private String titleLink;
 
-    @XmlAttribute
+    public PerformanceDTO() {
+        //empty stub
+    }
+
+    @XmlElement
     public int getId() {
         return id;
     }
@@ -23,16 +26,16 @@ public class PerformanceDTO implements Serializable {
         this.id = id;
     }
 
-    @XmlAttribute
-    public Date getDate() {
+    @XmlElement
+    public long getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(long date) {
         this.date = date;
     }
 
-    @XmlAttribute
+    @XmlElement
     public String getRoom() {
         return room;
     }
@@ -41,7 +44,7 @@ public class PerformanceDTO implements Serializable {
         this.room = room;
     }
 
-    @XmlAttribute
+    @XmlElement
     public String getTitle() {
         return title;
     }
@@ -50,7 +53,7 @@ public class PerformanceDTO implements Serializable {
         this.title = title;
     }
 
-    @XmlAttribute
+    @XmlElement
     public String getTitleLink() {
         return titleLink;
     }
@@ -59,7 +62,7 @@ public class PerformanceDTO implements Serializable {
         this.titleLink = titleLink;
     }
 
-    public PerformanceDTO(int id, Date date, String room, String title, String titleLink) {
+    public PerformanceDTO(int id, long date, String room, String title, String titleLink) {
 
         this.id = id;
         this.date = date;

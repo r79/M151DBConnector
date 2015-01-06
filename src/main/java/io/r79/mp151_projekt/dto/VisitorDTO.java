@@ -1,6 +1,6 @@
 package io.r79.mp151_projekt.dto;
 
-import javax.xml.bind.annotation.XmlAttribute;
+import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 import java.io.Serializable;
 
@@ -12,7 +12,11 @@ public class VisitorDTO implements Serializable {
     private String prename;
     private String phone;
 
-    @XmlAttribute
+    public VisitorDTO() {
+        //empty stub
+    }
+
+    @XmlElement
     public int getId() {
         return id;
     }
@@ -21,7 +25,7 @@ public class VisitorDTO implements Serializable {
         this.id = id;
     }
 
-    @XmlAttribute
+    @XmlElement
     public String getName() {
         return name;
     }
@@ -30,7 +34,7 @@ public class VisitorDTO implements Serializable {
         this.name = name;
     }
 
-    @XmlAttribute
+    @XmlElement
     public String getPrename() {
         return prename;
     }
@@ -39,7 +43,7 @@ public class VisitorDTO implements Serializable {
         this.prename = prename;
     }
 
-    @XmlAttribute
+    @XmlElement
     public String getPhone() {
         return phone;
     }

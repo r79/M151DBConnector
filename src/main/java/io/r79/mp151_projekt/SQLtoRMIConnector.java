@@ -1,5 +1,6 @@
 package io.r79.mp151_projekt;
 
+import io.r79.mp151_projekt.dao.ImdbUtils;
 import io.r79.mp151_projekt.dao.MySQLDAO;
 import io.r79.mp151_projekt.dto.PerformanceDTO;
 import io.r79.mp151_projekt.dto.VisitorDTO;
@@ -30,6 +31,10 @@ public class SQLtoRMIConnector extends UnicastRemoteObject implements FilmClubIn
 		System.out.println("incoming Request | Performances | start= " + sdf.format(start) + " | end= " + sdf.format(end) + " |");
 
 		ArrayList<PerformanceDTO> performances = dao.getPerformancesInRange(start, end);
+
+		for(PerformanceDTO performance : performances) {
+			performance.setTitleLink(ImdbUtils.receiveImdbLink(performance.getTitle()));
+		}
 
 		System.out.println("responded " + performances.size() + " Performances");
 
@@ -65,6 +70,8 @@ public class SQLtoRMIConnector extends UnicastRemoteObject implements FilmClubIn
 		}
 		catch(Exception exc) {
 			exc.printStackTrace();
+			System.exit(1);
 		}
+		System.out.println("Server started successfully.");
 	}
 }
